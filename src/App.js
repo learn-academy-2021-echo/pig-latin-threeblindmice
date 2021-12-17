@@ -38,22 +38,22 @@ class App extends Component{
       //if a word begins has a vowel at the 0 index, add "way" to the end.
       //if the first index is not a vowel, move to the end of the word then add to the very end, "ay"
       //"qu" moves to the end of the string if they occupy the first index of string
-      let newStr = ""
-      if(vowelsArray.indexOf(str[0]) > -1) {
 
-     newStr = str + "way"
+      if(vowelsArray.indexOf(userInput[0]) > -1) {
+
+     let newStr = userInput + "way"
      return newStr
       } else {
-        let firstMatch = str.match(/[aeiou]/g) || 0
-        let vowel = str.indexOf(firstMatch[0])
-        newStr = str.substring(vowel) + str.substring(0,vowel) + "ay" 
-       
+        let firstMatch = userInput.match(/[aeiou]/g) || 0
+        let vowel = userInput.indexOf(firstMatch[0])
+        newStr = userInput.substring(vowel) + userInput.substring(0,vowel) + "ay"
+
         return newStr
       }
-       
-    
-      
-  
+
+
+
+
 
       // Remember: console.log is your friend :)
 
