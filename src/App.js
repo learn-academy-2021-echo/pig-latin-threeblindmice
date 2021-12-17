@@ -31,26 +31,31 @@ class App extends Component{
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
-      console.log("vowelsArray:", vowelsArray)
 
+
+      var firstVow = currentWord.indexOf(vowelsArray[0])
+
+      if (currentWord.slice(0,2) === "qu"){
+        return currentWord.slice(2) + currentWord.slice(0,2) + "ay"
+    } else if(currentWord.slice(1,3) === "qu"){
+      return currentWord.slice(3) + currentWord.slice(0,3) + "ay"
+     } else { 
+            let firstCon = currentWord.slice(0,firstVow)
+            let firstP = currentWord.slice(firstVow)
+            return firstP + firstCon + "way"
+        }    
+    
+    
+
+
+      
       // your code here!
       //when dealing with "y" as a vowel, we should use a conditional statement that considers "y" is vowel if no other vowels are present.
       //if a word begins has a vowel at the 0 index, add "way" to the end.
       //if the first index is not a vowel, move to the end of the word then add to the very end, "ay"
       //"qu" moves to the end of the string if they occupy the first index of string
 
-      if(vowelsArray.indexOf(userInput[0]) > -1) {
-
-     let newStr = userInput + "way"
-     return newStr
-      } else {
-        let firstMatch = userInput.match(/[aeiou]/g) || 0
-        let vowel = userInput.indexOf(firstMatch[0])
-        newStr = userInput.substring(vowel) + userInput.substring(0,vowel) + "ay"
-
-        return newStr
-      }
-
+      
 
 
 
@@ -59,7 +64,7 @@ class App extends Component{
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+      //return pigLatindWord 
     })
 
 
